@@ -1,5 +1,6 @@
 package edu.temple.inclassactivity
 
+import android.R.attr.fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -14,7 +15,10 @@ class MainActivity : AppCompatActivity() {
         typedArray.recycle()
 
         // Attach an instance of ImageDisplayFragment using factory method
-        supportFragmentManager.beginTransaction().add(R.id.fragmentContainerView,ImageDisplayFragment.newInstance(imageArray)).commit()
+        val fragment = ImageDisplayFragment.newInstance(imageArray)
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainerView, fragment)
+            .commit()
 
     }
 }
